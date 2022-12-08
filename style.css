@@ -1,0 +1,85 @@
+body{
+    background-color:#28282B;
+}
+.header{
+    height: 30px;
+    width: 100%;
+}
+.main-block{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 800px;
+    border: 1px solid orange;
+}
+.inner_block{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.changeColorButton{
+    display: block;
+    float: left;
+    width: 200px;
+    height: 40px;
+    background-color: orange;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+    border-radius: 15px;
+    border: 1px solid #36454F;
+}
+.temp_text{
+    font-size: 26px;
+    color:orange;
+    display: none;
+}
+.temp_feelLike_text{
+    font-size: 26px;
+    color:orange;
+    display: none;
+}
+.wind_text{
+    font-size: 22px;
+    color:orange;
+    display: none;
+}
+.temp{
+    font-size: 26px;
+    color:orange;
+    margin-left: 10px;
+}
+.temp_feelLike{
+    font-size: 26px;
+    color:orange;
+    margin-left: 5px;
+}
+.wind{
+    font-size: 22px;
+    color:orange;
+    padding-left: 15px;
+    margin-left: 5px;
+}
+.input{
+    text-align: center;
+    margin: 20px;
+    width: 170px;
+    height: 30px;
+    font-size: 16px;
+    font-style: italic;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+p{
+    display: inline-block;
+}
+.sign_celsium{
+    display: none;
+    font-size: 26px;
+    color:orange;
+}
+.second_celsium{
+    display: none;
+    font-size: 26px;
+    color:orange;
+}
