@@ -9,20 +9,26 @@ const temp_feelLike = document.querySelector(".temp_feelLike");
 const wind  = document.querySelector(".wind")
 const temp_text = document.querySelector(".temp_text")
 const temp_feelLike_text = document.querySelector(".temp_feelLike_text")
-let orange_elements = [wind_text, second_celsium, temp, sign_celsium, temp_feelLike, wind, temp_text, temp_feelLike_text];
+let elements = [wind_text, second_celsium, temp, sign_celsium, temp_feelLike, wind, temp_text, temp_feelLike_text];
 
 function changeToOrange() {
-    for (let i = 0; i < orange_elements.length; i++) {
-        orange_elements[i].style.color = 'orange'
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.color = 'orange'
     }
 }
 
 function changeToBlack() {
-    for (let i = 0; i < orange_elements.length; i++) {
-        orange_elements[i].style.color = 'black'
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.color = 'black'
     }
 }
 
+function append_in_block() {
+    let array_inBlock = [temp_text, temp_feelLike_text, wind_text, sign_celsium, second_celsium]
+    for (let i = 0; i < array_inBlock.length; i++) {
+        array_inBlock[i].style.display =  'inline-block'
+    }
+}
 
 document.querySelector('.changeColorButton').addEventListener('click', function changeColorButton(params) {
     color = !color
@@ -47,15 +53,12 @@ document.querySelector('.changeColorButton').addEventListener('click', function 
 document.querySelector('.input').addEventListener("keypress", function(event) {
 let input = document.querySelector('.input').value
   if (event.key === "Enter") {
+      
 //for(let i = 0; i < signs.length; i++){
   //signs[i].style.display =  'inline-block'
 //}
-  document.querySelector('.temp_text').style.display =  'inline-block'
-  document.querySelector('.temp_feelLike_text').style.display =  'inline-block'
-  document.querySelector('.wind_text').style.display =  'inline-block'
-  document.querySelector('.sign_celsium').style.display =  'inline-block'
-  document.querySelector('.second_celsium').style.display =  'inline-block'
-
+      append_in_block()
+      
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=5488933573bee20246e8dc2177747d11`)
     .then((response) => response.json())
         .then(function(resp) {
@@ -73,3 +76,5 @@ let input = document.querySelector('.input').value
     .catch(err => alert(`Погоды по этому пункту (${input}) к сожалению, на сайте нет.`))
   }
 })
+
+
