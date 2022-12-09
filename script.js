@@ -9,7 +9,7 @@ const temp_feelLike = document.querySelector(".temp_feelLike");
 const wind  = document.querySelector(".wind")
 const temp_text = document.querySelector(".temp_text")
 const temp_feelLike_text = document.querySelector(".temp_feelLike_text")
-let elements = [wind_text, second_celsium, temp, sign_celsium, temp_feelLike, wind, temp_text, temp_feelLike_text];
+const elements = [wind_text, second_celsium, temp, sign_celsium, temp_feelLike, wind, temp_text, temp_feelLike_text];
 
 function changeToOrange() {
     for (let i = 0; i < elements.length; i++) {
@@ -24,7 +24,7 @@ function changeToBlack() {
 }
 
 function append_in_block() {
-    let array_inBlock = [temp_text, temp_feelLike_text, wind_text, sign_celsium, second_celsium]
+    const array_inBlock = [temp_text, temp_feelLike_text, wind_text, sign_celsium, second_celsium]
     for (let i = 0; i < array_inBlock.length; i++) {
         array_inBlock[i].style.display =  'inline-block'
     }
@@ -51,14 +51,14 @@ document.querySelector('.changeColorButton').addEventListener('click', function 
 
 
 document.querySelector('.input').addEventListener("keypress", function(event) {
-let input = document.querySelector('.input').value
+    const input = document.querySelector('.input').value
   if (event.key === "Enter") {
-      
+
 //for(let i = 0; i < signs.length; i++){
   //signs[i].style.display =  'inline-block'
 //}
       append_in_block()
-      
+
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=5488933573bee20246e8dc2177747d11`)
     .then((response) => response.json())
         .then(function(resp) {
@@ -70,11 +70,9 @@ let input = document.querySelector('.input').value
           const temp_feelLike = document.querySelector('.temp_feelLike').textContent = Math.floor(temp_feelLike_resp - 273.15)
 
 
-          let wind_resp = resp.wind.speed
+            const wind_resp = resp.wind.speed
           document.querySelector('.wind').textContent = wind_resp
           })
     .catch(err => alert(`Погоды по этому пункту (${input}) к сожалению, на сайте нет.`))
   }
 })
-
-
